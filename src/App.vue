@@ -1,32 +1,53 @@
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+<template lang="pug">
+v-app
+  v-app-bar(
+    app
+    color="primary"
+    dark
+  )
+    v-container(
+    ).py-0.fill-height
+      v-btn(
+        text
+      ) Kate Social
+
+      v-spacer
+
+      v-responsive
+        v-avatar(
+          class="mr-10"
+          color="grey darken-1"
+          size="32"
+        ).float-right
+
+  v-main.grey.lighten-3
+    v-container
+      v-row
+        v-col(
+          cols="2"
+        )
+          v-sheet(rounded="lg")
+            v-list(
+              color="transparent"
+            )
+              v-list-item(v-for="menu in menuList" link)
+                v-list-item-content
+                  v-list-item-title {{menu.text}}
+
+        v-col
+          router-view
+
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+export default {
+  name: 'App',
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  data: () => ({
+    menuList: [
+      {text:"My Profile"},
+      {text:"Messages"}
+    ]
+  }),
+};
+</script>

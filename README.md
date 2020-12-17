@@ -1,4 +1,4 @@
-# tsvue-todo-app
+# kate-social
 
 ## Project setup
 ```
